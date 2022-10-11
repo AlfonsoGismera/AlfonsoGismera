@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.101.0">
+  <title>Product example · Bootstrap v5.2</title>
+
+  <!-- Bootstrap core CSS -->
+  <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+  <!-- Font awesome icons -->
+  <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet">
+
+
+  <!-- Custom styles for this template -->
+  <link th:href="@{/css/product.css}" rel="stylesheet">
+
+</head>
+<body>
+
+<header class="site-header sticky-top py-1">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" aria-label="Miempresa.com">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24">
+          <title>Empleados</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+      </a>
+
+      <div class="collapse navbar-collapse" >
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#" th:href="@{/}"><i class="fa fa-home"></i>&nbsp;Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a sec:authorize="isAuthenticated()" class="nav-link" href="#" th:href="@{/empleado/list}">Empleados</a>
+          </li>
+          <li class="nav-item">
+            <a sec:authorize="isAuthenticated()" class="nav-link" href="#" th:href="@{/empleado/new}">
+              <i class="fas fa-plus-circle"></i> Añadir empleado</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav me-auto">
+          <li sec:authorize="!isAuthenticated()" class="nav-item">
+            <a class="nav-link" href="#" th:href="@{/login}">
+              <i class="fa fa-user"></i> Iniciar Sesión</a>
+          </li>
+          <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+               href="#"  role="button" >
+              <span th:text="${#authentication.name}">Menú</span> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <span class="dropdown-item" th:text="${'Número visitas'}"></span>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="javascript:document.getElementById('logoutForm').submit()">
+                <i class="fas fa-sign-out-alt"></i> Salir</a>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+        <form th:action="@{/logout}" method="post" id="logoutForm"></form>
+
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <div class="col-md-7 p-lg-7 mx-auto my-7">
+      <h1 class="display-6 fw-normal">Listado de empleados de la empresa</h1>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Avatar</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Directivo</th>
+          <th>Departamento</th>
+          <th>Operaciones</th>
+        </thead>
+        <tbody>
+        <tr th:each="empleado : ${listaEmpleados}">
+          <td th:text="${empleado.id}">ID</td>
+          <td><img src="" th:src="@{${empleado.imagen} ?: 'https://avatars.dicebear.com/api/human/{email}.png'(email=${empleado.email})}" width="64px" /></td>
+          <td th:text="${empleado.nombre}">Pepe Pérez</td>
+          <td th:text="${empleado.email}">pepe.perez@openwebinars.net</td>
+          <td th:text="${empleado.telefono}">954000000</td>
+          <td>
+            <span th:if="${empleado.directivo}" class="fa fa-user-check" aria-hidden="true"></span>
+            <span th:unless="${empleado.directivo}" class="fa fa-user" aria-hidden="true"></span>
+          </td>
+          <td th:text="${empleado.departamento}">tipo departamento</td>
+          <td><a th:href="@{/empleado/edit/{id}(id=${empleado.id})}" aria-label="Editar">
+            <span class="fas fa-edit" aria-hidden="true"></span></a></td>
+          <td><a href="#" data-bs-toggle="modal" th:data-bs-target="'#delete-modal_' + ${empleado.id}" aria-label="Borrar">
+            <span class="fas fa-trash" aria-hidden="true"></span></a></td>
+
+          <!--
+          <td><button type="button" class="btn btn-link" data-bs-toggle="modal"  th:data-bs-target="'#delete-modal_' + ${empleado.id}"
+            aria-label="Borrar">
+            <span class="fas fa-trash" aria-hidden="true"></span></button></td>
+            -->
+
+        <div class="modal fade" th:id="'delete-modal_' + ${empleado.id}" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Borrar empleado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+              <div class="modal-body">
+                <p>¿Confirma el borrado de este empleado?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <a th:href="@{/empleado/delete/{id}(id=${empleado.id})}" class="btn btn-primary">Aceptar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+</main>
+
+<footer class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+      <small class="d-block mb-3 text-muted">&copy; 2017–2022</small>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Features</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="link-secondary" href="#">Cool stuff</a></li>
+        <li><a class="link-secondary" href="#">Random feature</a></li>
+        <li><a class="link-secondary" href="#">Team feature</a></li>
+        <li><a class="link-secondary" href="#">Stuff for developers</a></li>
+        <li><a class="link-secondary" href="#">Another one</a></li>
+        <li><a class="link-secondary" href="#">Last time</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Resources</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="link-secondary" href="#">Resource name</a></li>
+        <li><a class="link-secondary" href="#">Resource</a></li>
+        <li><a class="link-secondary" href="#">Another resource</a></li>
+        <li><a class="link-secondary" href="#">Final resource</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Resources</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="link-secondary" href="#">Business</a></li>
+        <li><a class="link-secondary" href="#">Education</a></li>
+        <li><a class="link-secondary" href="#">Government</a></li>
+        <li><a class="link-secondary" href="#">Gaming</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>About</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="link-secondary" href="#">Team</a></li>
+        <li><a class="link-secondary" href="#">Locations</a></li>
+        <li><a class="link-secondary" href="#">Privacy</a></li>
+        <li><a class="link-secondary" href="#">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+
+</body>
+</html>
+

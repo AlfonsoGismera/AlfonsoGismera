@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "storage",
+      "type": "es.carlosgs.demo.storage.StorageProperties",
+      "sourceType": "es.carlosgs.demo.storage.StorageProperties"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
