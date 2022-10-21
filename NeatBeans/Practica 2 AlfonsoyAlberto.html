@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Practica 2</title>
+</head>
+
+<body>
+    <p>hola</p>
+    <div>
+        <h2>Escriba abajo</h2>
+        <div>
+                <input type="text" id="myInput">
+                <input type="text" id="myInput2">
+                <br>
+                <button onclick="myFunction()">Copia el texto</button>
+                <button onclick="Borrado()">Borrado</button>
+        </div>
+    </div>
+    <script>
+            const copyText = document.getElementById("myInput");
+            const copiado = document.getElementById("myInput2");
+        function myFunction() {
+            copiado.value= copyText.value;
+            // copyText.select();
+            // copyText.setSelectionRange(0, 99999);
+
+            // // Copy the text inside the text field
+            // navigator.clipboard.writeText(copyText.value)
+            // // Alert the copied text
+            // alert("Copied the text: " + copyText.value);
+            // document.getElementById("myInput2").value = document.getElementById("myInput").value;
+            alert("reiniciio");
+        }
+        function Borrado() {
+            copiado.value ="";
+            copyText.value ="";
+        }
+    </script>
+</body>
+</html>

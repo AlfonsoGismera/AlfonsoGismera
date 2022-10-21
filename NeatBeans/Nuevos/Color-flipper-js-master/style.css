@@ -1,0 +1,65 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;  
+}
+
+:root {
+    --bg-color: #303134;
+    --color-text: #cad2db;
+    --box-shadow: 5px 5px 5px 0 rgb(32,33,36,1),
+                  -1px -1px 4px 0 rgb(32,33,36,1);
+}
+
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.container {
+    width: 30%;
+    max-width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 5px 5px 5px 0 rgb(32, 33, 36,1),
+                -1px -1px 3px 0 rgb(32, 33, 36,1);
+    border-radius: 1rem;
+    text-align: center;
+    color: var(--color-text);
+    padding: 1rem;
+    background-color: var(--bg-color);
+}
+
+.color-hex,
+.btns * {
+    background-color: var(--bg-color);
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+}
+
+.color-hex {
+    font-weight: 600;
+    letter-spacing: 3px;
+    font-size: 1.5rem;
+    margin: 2rem 0 2rem 0;
+}
+
+.btns * {
+    outline: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+@media screen and (max-width:750px) {
+    .container {
+        width: 90%;
+    }
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background: url('computerIMGedit.jpg');
+      color: rgb(211, 18, 18);
+    }
+
+    .clock {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      color: #e6967e;
+      font-size: 60px;
+      font-family: 'Josefin Sans', sans-serif;
+      letter-spacing: 7px;
+      -webkit-transition: 0.5s;
+
+
+
+    }
+
+    .clock:hover {
+      transform: translateY(-10px);
+      transition: 0.5s;
+      font-size: 80px;
+      color: whitesmoke;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>The fieldset element</h1>
+  <div style="text-align:center;padding:1em 0;">
+    <h4><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/es/city/3573890">
+        <span style="color:gray;">Hora actual en</span><br />Port of Spain, Trinidad y Tobago</a></h4> <iframe
+      src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=small&timezone=America%2FPort_of_Spain"
+      width="100%" height="90" frameborder="0" seamless></iframe>
+  </div>
+  <form>
+    <fieldset>
+      <legend>Personalia:</legend>
+      <label for="fname">Usuario:</label>
+      <input type="text" id="fname" name="fname"><br><br>
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" minlength="8"><br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br><br>
+      <button onmouseover="myFunction()">
+        Enviar
+      </button>
+    </fieldset>
+    <h1>Analogico</h1>
+
+    <div id="MyClockDisplay" class="clock" onload="showTime()">
+    </div>
+    <h1>Digital</h1>
+    <canvas id="canvas" width="400" height="400" style="background-color:#333">
+    </canvas>
+
+  </form>
+  <p id="demo"></p>
+  <script>
+    function myFunction() {
+      var inputPassword = document.querySelector("#password").value;
+      if (inputPassword.length >= 8) {
+        console.log("Muy bien"); // Puedes colocar un alert() o nada.
+      }
+      else {
+        alert("Debes escribir mas de 8 caracteres");
+      }
+    }
+    //Analogico
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var radius = canvas.height / 2;
+    ctx.translate(radius, radius);
+    radius = radius * 0.90
+    setInterval(drawClock, 1000);
+
+    function drawClock() {
+      drawFace(ctx, radius);
+      drawNumbers(ctx, radius);
+      drawTime(ctx, radius);
+    }
+
+    function drawFace(ctx, radius) {
+      var grad;
+      ctx.beginPath();
+      ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+      ctx.fillStyle = 'white';
+      ctx.fill();
+      grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
+      grad.addColorStop(0, '#333');
+      grad.addColorStop(0.5, 'white');
+      grad.addColorStop(1, '#333');
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = radius * 0.1;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+      ctx.fillStyle = '#333';
+      ctx.fill();
+    }
+
+    function drawNumbers(ctx, radius) {
+      var ang;
+      var num;
+      ctx.font = radius * 0.15 + "px arial";
+      ctx.textBaseline = "middle";
+      ctx.textAlign = "center";
+      for (num = 1; num < 13; num++) {
+        ang = num * Math.PI / 6;
+        ctx.rotate(ang);
+        ctx.translate(0, -radius * 0.85);
+        ctx.rotate(-ang);
+        ctx.fillText(num.toString(), 0, 0);
+        ctx.rotate(ang);
+        ctx.translate(0, radius * 0.85);
+        ctx.rotate(-ang);
+      }
+    }
+
+    function drawTime(ctx, radius) {
+      var now = new Date();
+      var hour = now.getHours();
+      var minute = now.getMinutes();
+      var second = now.getSeconds();
+      //hour
+      hour = hour % 12;
+      hour = (hour * Math.PI / 6) +
+        (minute * Math.PI / (6 * 60)) +
+        (second * Math.PI / (360 * 60));
+      drawHand(ctx, hour, radius * 0.5, radius * 0.07);
+      //minute
+      minute = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60));
+      drawHand(ctx, minute, radius * 0.8, radius * 0.07);
+      // second
+      second = (second * Math.PI / 30);
+      drawHand(ctx, second, radius * 0.9, radius * 0.02);
+    }
+
+    function drawHand(ctx, pos, length, width) {
+      ctx.beginPath();
+      ctx.lineWidth = width;
+      ctx.lineCap = "round";
+      ctx.moveTo(0, 0);
+      ctx.rotate(pos);
+      ctx.lineTo(0, -length);
+      ctx.stroke();
+      ctx.rotate(-pos);
+    }
+    //Digital
+    function showTime() {
+      var date = new Date();
+      var d = date.getDate();
+      var d1 = date.getDay();
+      var h = date.getHours(); // 0 - 23
+      var m = date.getMinutes(); // 0 - 59
+      var s = date.getSeconds(); // 0 - 59
+      var session = "PM";
+
+      if (h == 02) {
+        h = 12;
+      }
+
+
+      if (h > 12) {
+        session = "PM";
+      }
+      if (h < 12) {
+        session = "AM"
+      }
+
+      h = (h < 10) ? "0" + h : h;
+      m = (m < 10) ? "0" + m : m;
+      s = (s < 10) ? "0" + s : s;
+
+      var time = d + d1 + "  " + "Time:" + "  " + h + ":" + m + ":" + s + " " + session;
+      document.getElementById("MyClockDisplay").innerText = time;
+      document.getElementById("MyClockDisplay").textContent = time;
+
+      setTimeout(showTime, 1000);
+      console.log("Ha vencido el timeout")
+    }
+    showTime();
+  </script>
+</body>
+
+</html>
