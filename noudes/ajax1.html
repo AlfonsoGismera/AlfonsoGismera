@@ -1,0 +1,61 @@
+<html>
+<head>
+	<style>
+		#id_resp {
+			background-color : gray;
+			padding : 50px;
+		}
+		#id_cont {
+			background-color : gray;
+			padding : 5px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<button id="ajaxButton" type="button">Make a request</button>
+		<button id="id_cont"></button>
+	</div>
+	<div id="id_resp">
+	</div>
+</body>
+
+<script>
+	let cont = 0;
+  (() => {
+    let httpRequest;
+    document
+      .getElementById("ajaxButton")
+      .addEventListener("click", makeRequest);
+
+    function makeRequest() {
+      httpRequest = new XMLHttpRequest();
+
+      if (!httpRequest) {
+        alert("Giving up :( Cannot create an XMLHTTP instance");
+        return false;
+      }
+      httpRequest.onreadystatechange = alertContents;
+      httpRequest.open("GET", "/ajax_resp");
+      httpRequest.send();
+    }
+
+    function alertContents() {
+      if (httpRequest.readyState === XMLHttpRequest.DONE) {
+		console.log('resp status : ' + httpRequest.status);
+        if (httpRequest.status === 200) {
+          //alert(httpRequest.responseText);
+		  document.getElementById('id_resp').innerHTML = httpRequest.responseText;
+		  cont++;
+		  document.getElementById('id_cont').innerHTML = cont;
+        } else {
+          alert("There was a problem with the request.");
+        }
+      }
+    }
+  })();
+  console.log('script loaded');
+  // setTimeout(timer, 1000)
+</script>
+
+</html>
