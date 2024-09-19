@@ -1,8 +1,8 @@
 # ****
 <div align="center">
-<h1 align="center">👋 Hi there! I'm <a href="https://aristi.dev">Alfonso Francisco Gismera Perea</a> 👋</h1>
+<h1 align="center">👋 Hi there! I'm <a href="[https://aristi.dev](https://www.linkedin.com/in/alfonso-francisco-gismera-perea-0915852ba/)">Alfonso Francisco Gismera Perea</a> 👋</h1>
 </div>
-<img src="https://i.imgur.com/weNbhGZ.png">
+<img src="[https://i.imgur.com/weNbhGZ.png](https://miro.medium.com/v2/resize:fit:2560/format:webp/1*2XrX0fP0htyTCah7AglTig.jpeg)">
 
 🚀 **Java Developer | Web Developer | Tech Enthusiast**
 
