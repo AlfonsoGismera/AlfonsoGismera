@@ -5,8 +5,9 @@ I am a passionate **Java developer** with experience in building and optimizing 
 
 ---
 <div align="center">
-  ![Banner](https://images.unsplash.com/photo-1506748686214e9df14b8d2f5e134046?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGJhY2tncm91bmQgbm9ydGhlcm58ZW58MHx8fDE2NjU4NzcxMzM&ixlib=rb-1.2.1&q=80&w=1200)
+<h1 align="center">Hola, soy <a href="https://aristi.dev">AristiDevs</a> 👋</h1>
 </div>
+<img src="https://i.imgur.com/weNbhGZ.png">
 
 ## 🛠 **Technical Skills**
 
