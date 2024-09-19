@@ -1,10 +1,10 @@
 <div align="center">
   <h1 align="center">👋 Hi there! I'm <a href="https://www.linkedin.com/in/alfonso-francisco-gismera-perea-0915852ba/">Alfonso Francisco Gismera Perea</a> 👋</h1>
 </div>
-
+<!-- Head 
 <div align="center">
-  <img src="https://i.pinimg.com/564x/92/45/50/924550f254f939c1fceaa2e6424b0b4c.jpg" alt="Banner" style="width: 600px; height: 600px; object-fit: cover;">
-</div>
+  <img src="https://i.pinimg.com/564x/92/45/50/924550f254f939c1fceaa2e6424b0b4c.jpg" alt="Banner" style="width: 75%; height: auto; max-width: 100px;">
+</div> -->
 
 🚀 **Java Developer | Web Developer | Tech Enthusiast**
 
@@ -37,8 +37,11 @@ I am a passionate **Java developer** with experience in building and optimizing 
 - [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/alfonso-francisco-gismera-perea-0915852ba/)
 
 ---
+<!-- Foooter 
 <div align="center">
   <img src="https://i.pinimg.com/564x/94/f1/c8/94f1c8a05367484692dc5ac134725864.jpg" alt="Footer Image" style="width: 600px; height: 600px; object-fit: cover;">
 </div>
+-->
 ✨ **I'm always looking for new challenges and learning opportunities. Feel free to reach out or check out my projects!**
+
 
