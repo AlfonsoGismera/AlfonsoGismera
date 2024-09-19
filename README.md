@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-  <img src="https://i.pinimg.com/564x/92/45/50/924550f254f939c1fceaa2e6424b0b4c.jpg" alt="Banner" style="width: 100%; max-width: 1200px;">
+  <img src="https://i.pinimg.com/564x/92/45/50/924550f254f939c1fceaa2e6424b0b4c.jpg" alt="Banner" style="width: 600px; height: 600px; object-fit: cover;">
 </div>
 
 🚀 **Java Developer | Web Developer | Tech Enthusiast**
@@ -38,7 +38,7 @@ I am a passionate **Java developer** with experience in building and optimizing 
 
 ---
 <div align="center">
-  <img src="https://i.pinimg.com/564x/94/f1/c8/94f1c8a05367484692dc5ac134725864.jpg" alt="Footer Image" style="width: 100%; max-width: 400px;">
+  <img src="https://i.pinimg.com/564x/94/f1/c8/94f1c8a05367484692dc5ac134725864.jpg" alt="Footer Image" style="width: 600px; height: 600px; object-fit: cover;">
 </div>
 ✨ **I'm always looking for new challenges and learning opportunities. Feel free to reach out or check out my projects!**
 
