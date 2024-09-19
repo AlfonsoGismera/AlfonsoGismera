@@ -1,14 +1,14 @@
-# 👋 Hi there! I'm **Alfonso Francisco Gismera Perea**
+# ****
+<div align="center">
+<h1 align="center">👋 Hi there! I'm <a href="https://aristi.dev">Alfonso Francisco Gismera Perea</a> 👋</h1>
+</div>
+<img src="https://i.imgur.com/weNbhGZ.png">
+
 🚀 **Java Developer | Web Developer | Tech Enthusiast**
 
 I am a passionate **Java developer** with experience in building and optimizing web applications and managing databases. I enjoy learning new technologies and providing innovative solutions. Here are some of my core technical skills:
 
 ---
-<div align="center">
-<h1 align="center">Hola, soy <a href="https://aristi.dev">AristiDevs</a> 👋</h1>
-</div>
-<img src="https://i.imgur.com/weNbhGZ.png">
-
 ## 🛠 **Technical Skills**
 
 ### Programming Languages
