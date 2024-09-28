@@ -1,3 +1,5 @@
+<h2 align="center"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=9B72FF&random=false&width=435&lines=%22Learning%2C+Living%2C+and+Leveling+up.%22" alt="Typing SVG" />
+</h2>
 <div align="center">
   <h1 align="center">👋 Hi there! I'm <a href="https://www.linkedin.com/in/alfonso-francisco-gismera-perea-0915852ba/">Alfonso Francisco Gismera Perea</a> 👋</h1>
 </div>
