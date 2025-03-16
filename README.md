@@ -1,8 +1,6 @@
-<!-- Header 
 <div align="center">
-  <img src="IMG-SVG/github-header-image.jpeg" style="width: 100%; height: auto; max-width: 100px;">
-</div> 
--->
+  <img src="IMG-SVG/github-header-image.jpeg" alt="Header Image" style="width: 100%; height: auto; max-width: 100px;">
+</div>
 <div align="center">
   <h1 align="center">👋 Hi there! I'm <a href="https://www.linkedin.com/in/alfonso-francisco-gismera-perea-0915852ba/">Alfonso Francisco Gismera Perea</a> 👋</h1>
 </div>
@@ -10,7 +8,7 @@
   
 ### 🚀Java Developer | Web Developer | Tech Enthusiast ###
 
-I am a passionate **Java developer** with experience in building and optimizing web applications and managing databases. I enjoy learning new technologies and providing innovative solutions. Here are some of my core technical skills:
+I'm a passionate **Java developer**  with experience in building and optimizing web applications and managing databases. I enjoy learning new technologies and providing innovative solutions. I'm always open to new challenges and collaboration opportunities.
 
 ---
 ## 🛠 **Technical Skills**
